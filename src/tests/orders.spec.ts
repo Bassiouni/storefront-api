@@ -10,6 +10,10 @@ export function OrderSpec() {
       expect(OrderStore.create).toBeDefined()
     })
 
+    it('should have a addProductToOrder method', () => {
+      expect(OrderStore.addProductToOrder).toBeDefined()
+    })
+
     it('create method should add an order', async () => {
       const result = await OrderStore.create(1)
 
@@ -19,14 +23,18 @@ export function OrderSpec() {
       })
     })
 
+    it('addProductToOrder should add a product to the order of the user', async () => {
+      const result = await OrderStore.addProductToOrder(3, 1, 1)
+      expect(result).toEqual({ id: 1, quantity: 3, order_id: 1, product_id: 1 })
+    })
+
     it('show method should return the correct order', async () => {
       const result = await OrderStore.show(1)
-      console.log(result, 'show method 3333333')
       expect(result).toEqual([
         {
           id: 1,
           product_id: 1,
-          quantity: 2,
+          quantity: 3,
           order_id: 1,
         },
       ])

@@ -124,15 +124,21 @@ describe('Testing /orders endpoint', () => {
   })
 
   it('checks for orders list', async () => {
-    res = await request.get('/order/2').send(globals)
+    res = await request.get('/order/1').send(globals)
     expect(res.status).toEqual(200)
     expect(res.body).toEqual([
       {
-        id: globals.id,
-        quantity: globals.quantity,
-        user_id: globals.id,
-        product_id: globals.product_id,
+        id: 1,
+        quantity: 3,
+        order_id: 1,
+        product_id: 1,
       },
     ])
+  })
+
+  it('check for added products to the existing order', async () => {
+    res = await request.post('/order/1/products').send(globals)
+    expect(res.status).toEqual(200)
+    console.log('body:', res.body)
   })
 })

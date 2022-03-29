@@ -8,6 +8,7 @@ export async function getCurrentOrderByUserId(req: Request, res: Response) {
     if (!user_id) throw new Error()
 
     const data = await OrderStore.show(user_id)
+    console.log('Data:', data)
 
     res.status(200).json(data)
   } catch {

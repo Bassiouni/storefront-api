@@ -27,14 +27,20 @@ export async function createOrder(req: Request, res: Response) {
 }
 
 export async function addProductToExistingOrder(req: Request, res: Response) {
+  console.log('hitting addProductToExistingOrder()')
   const { quantity, order_id, product_id } = req.body
   try {
+    console.log('----------> 1')
     const data = await OrderStore.addProductToOrder(
       parseInt(quantity),
       parseInt(order_id),
       parseInt(product_id)
     )
-    res.status(200).json(data)
+    console.log('----------> 2')
+    console.log('data in router', { data })
+    console.log('----------> 3')
+    res.status(200).json({ data })
+    console.log('----------> 4')
   } catch {
     res.send(`Could not add product ${product_id} to order ${order_id}`)
   }
