@@ -22,6 +22,7 @@ const globals = {
   price: 20,
   quantity: 1,
   product_id: 1,
+  order_id: 1,
 }
 
 describe('Testing /user endpont', async () => {
@@ -139,6 +140,11 @@ describe('Testing /orders endpoint', () => {
   it('check for added products to the existing order', async () => {
     res = await request.post('/order/1/products').send(globals)
     expect(res.status).toEqual(200)
-    console.log('body:', res.body)
+    expect(res.body).toEqual({
+      id: globals.id,
+      quantity: globals.quantity,
+      order_id: globals.order_id,
+      product_id: globals.product_id,
+    })
   })
 })

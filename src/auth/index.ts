@@ -21,6 +21,7 @@ export async function authUser(req: Request, res: Response, next: () => void) {
       user.lastname === lastname &&
       user.password === password
     ) {
+      res.locals.user = user
       next()
     } else {
       res.status(401).json('Access denied, invalid token')

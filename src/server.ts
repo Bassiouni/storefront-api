@@ -18,5 +18,6 @@ if (process.env.ENV === 'dev') app.use(morgan('dev'))
 app.use('/', router)
 
 app.listen(3000, function () {
+  // eslint-disable-next-line no-console
   console.log(`starting app on: ${address}`)
 })

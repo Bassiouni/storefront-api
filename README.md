@@ -66,4 +66,4 @@ Use with `npm run`:
 - Tokens are created when a user is created
 - There is no use of an Authorization header
 - The server starts on port `3000` by default
-- The database port depends on your local setup of postgresql but most of the time it is `5432`
+- The database port depends on your local setup of postgresql but most of the time it is `:5432`

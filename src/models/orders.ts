@@ -58,10 +58,8 @@ export class OrderStore {
       const result = await conn.query(sql, [quantity, orderId, productId])
 
       const order = result.rows[0]
-      console.log('order:', order)
 
       conn.release()
-
       return order
     } catch (err) {
       throw new Error(

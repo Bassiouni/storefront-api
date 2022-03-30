@@ -1,2 +1,3 @@
 export { getCurrentOrderByUserId } from './getCurrentOrderByUserId'
-export { createOrder, addProductToExistingOrder } from './createOrder'
+export { createOrder } from './createOrder'
+export { addProductToExistingOrder } from './addProductToExistingOrder'
