@@ -54,16 +54,25 @@ Table: users (
 
 #### Orders
 - id
-- id of each product in the order
-- quantity of each product in the order
 - user_id
-- status of order (active or complete)
 
 ```
 Table: orders (
   id: Serial [Primary Key],
-  quantity: Int,
   user_id: INT foreign key to users table,
-  product_id Int foreign key products table
+);
+```
+
+#### Order Products
+- id
+- quantity of each product in the order
+- id of each product in the order
+
+```
+Table: order_products (
+  id Serial[Primary Key],
+  quantity int,
+  order_id int foreign key to orders table,
+  product_id int foreign key to products table
 );
 ```
